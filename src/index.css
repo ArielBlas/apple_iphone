@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --finish-white-titanium: #c9c8c3;
+  --finish-natural-titanium: #8f8a81;
+  --finish-blue-titanium: #202630;
+  --finish-black-titanium: #242526;
+  --finish-black: #35393b;
+  --finish-alpine-green: #576856;
+  --finish-blue: #a0b4c7;
+  --finish-deep-purple: #594f63;
+  --finish-gold: #f4e8ce;
+  --finish-graphite: #54524f;
+  --finish-green: #394c38;
+  --finish-midnight: #222930;
+  --finish-pink: #faddd7;
+  --finish-product-red: #fc0324;
+  --finish-purple: #e6ddeb;
+  --finish-sierra-blue: #a7c1d9;
+  --finish-silver: #f0f2f2;
+  --finish-space-black: #403e3d;
+  --finish-space-gray: #555;
+  --finish-starlight: #faf6f2;
+  --finish-yellow: #f9e479;
+  --finish-iphone-15-blue: #ced5d9;
+  --finish-iphone-15-green: #cad4c5;
+  --finish-iphone-15-yellow: #e5e0c1;
+  --finish-iphone-15-pink: #e3c8ca;
+  --finish-iphone-13-pro-gold: #fae7cf;
+  --finish-iphone-13-pro-silver: #f1f2ed;
+  --finish-iphone-13-blue: #276787;
+  --finish-iphone-13-midnight: #232a31;
+  --finish-iphone-13-product-red: #bf0013;
+  --finish-iphone-se-3-midnight: #232a31;
+  --finish-iphone-se-3-product-red: #bf0013;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+  background: #000;
+  border-color: #3b3b3b;
+  user-select: none;
+}
+
+canvas {
+  touch-action: none;
+}
+
+.screen-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1260px;
+}
+
+.nav-color {
+  color: rgba(255, 255, 255, 0.8);
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.accordion {
+  height: 0;
+  overflow: hidden;
+}
+
+.absolute-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.access-pass__container {
+  align-items: flex-end;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.access-pass {
+  --aap-min-height: 56px;
+  --aap-blur: 7px;
+  --aap-font-size: 17px;
+  --aap-font-weight: 600;
+  --aap-mobile-font-size: 14px;
+  --aap-hint-scale: 1;
+  --aap-hint-opacity: 0;
+  --aap-margin: 30px;
+  --aap-margin-bottom: 100px;
+  --aap-background-transition-duration: 250ms;
+  --aap-background-color: rgb(66 66 69 / 70%);
+  --aap-accent-color: #0071e3;
+  --aap-hint-opacity: 1;
+  --aap-hint-scale: 0;
+  align-items: center;
+  bottom: var(--aap-margin);
+  display: flex;
+  margin-bottom: var(--aap-margin-bottom);
+  margin-top: var(--aap-margin);
+  position: sticky;
+  will-change: transform;
+}
+
+.access-pass:before {
+  background-color: var(--aap-accent-color);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: var(--aap-hint-opacity);
+  position: absolute;
+  top: 0;
+  transform: scale(var(--aap-hint-scale));
+  width: 100%;
+  will-change: transform;
+}
+
+.access-pass__background {
+  backdrop-filter: blur(var(--aap-blur));
+  background-color: var(--aap-background-color);
+  border-radius: 32px;
+  box-shadow: inset 0 0 1px var(--aap-inner-glow-color);
+  color: var(--aap-text-color);
+  display: flex;
+  will-change: transform;
+  z-index: 1;
+  transition: linear var(--aap-background-transition-duration) background-color;
+}
+
+.access-pass__link {
+  --button-margin: 10px;
+  color: var(--aap-text-color);
+  border-radius: 32px;
+  justify-content: space-between;
+  min-height: var(--aap-min-height);
+  overflow: hidden;
+  pointer-events: auto;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+}
+
+.pin-wrapper {
+  position: absolute;
+  width: 477px;
+  left: -456px;
+  top: 242px;
+  z-index: 2;
+}
+
+.pin,
+.pin:before {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+}
+
+.pin-horizontal {
+  left: 0;
+  right: 0;
+}
+
+.pin-horizontal-right:before {
+  right: 0;
+}
+
+.pin-horizontal:after {
+  overflow: hidden;
+  width: 100%;
+}
+
+.pin-horizontal,
+.pin-horizontal:after {
+  height: 1px;
+}
+
+.pin:after,
+.pin:before {
+  content: "";
+  display: block;
+  background-color: rgb(110, 110, 115);
+}
+
+.pin:before {
+  border-radius: 50%;
+  margin: -1px;
+  width: 3px;
+  height: 3px;
+}
+
+.pin-wrapper .pin-horizontal:before {
+  top: -3px;
+}
+
+.pin-wrapper .pin:before {
+  width: 9px;
+  height: 9px;
+}
+
+.finish-natural-titanium {
+  background-color: var(--finish-natural-titanium);
+}
+
+.finish-blue-titanium {
+  background-color: var(--finish-blue-titanium);
+}
+
+.finish-white-titanium {
+  background-color: var(--finish-white-titanium);
+}
+
+.finish-black-titanium {
+  background-color: var(--finish-black-titanium);
+}
+
+.finish-iphone-15-pink {
+  background-color: var(--finish-iphone-15-pink);
+}
+
+.finish-iphone-15-yellow {
+  background-color: var(--finish-iphone-15-yellow);
+}
+
+.finish-iphone-15-green {
+  background-color: var(--finish-iphone-15-green);
+}
+
+.finish-iphone-15-blue {
+  background-color: var(--finish-iphone-15-blue);
+}
+
+.finish-black {
+  background-color: var(--finish-black);
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .nav-height {
+    @apply md:h-[calc(100vh-60px)] h-full;
+  }
+
+  .btn {
+    @apply px-5 py-2 rounded-3xl bg-blue my-5 border border-transparent;
+  }
+
+  .btn-md {
+    @apply px-3 py-1 rounded-3xl bg-blue  border border-transparent;
+  }
+
+  .btn-sm {
+    @apply px-0 py-0 rounded-3xl bg-blue  border border-transparent;
+  }
+
+  .color-container {
+    @apply flex items-center justify-center px-3 py-3 rounded-full bg-gray-300 backdrop-blur;
+  }
+
+  .size-btn-container {
+    @apply flex items-center justify-center p-1 rounded-full bg-gray-300 backdrop-blur ml-3 gap-1;
+  }
+
+  .size-btn {
+    @apply w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all;
+  }
+
+  .common-padding {
+    @apply md:py-32 py-20 md:px-10 px-5;
+  }
+
+  .section-heading {
+    @apply text-gray lg:text-6xl md:text-5xl text-4xl lg:mb-0 font-medium opacity-0 translate-y-20;
+  }
+
+  .feature-text {
+    @apply text-gray max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px];
+  }
+
+  .feature-text-container {
+    @apply w-full flex-center flex-col md:flex-row mt-10 md:mt-16 gap-5 md:px-10 max-md:max-w-[280px] m-auto;
+  }
+
+  .feature-video {
+    @apply w-full h-full object-cover object-center scale-150 opacity-0;
+  }
+
+  .feature-video-container {
+    @apply w-full flex flex-col md:flex-row gap-5 items-center;
+  }
+
+  .link {
+    @apply text-blue hover:underline cursor-pointer flex items-center md:text-xl  opacity-0 translate-y-20;
+  }
+
+  .control-btn {
+    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex-center;
+  }
+
+  .hero-title {
+    @apply text-center font-normal md:text-3xl text-xl text-gray-100 opacity-0 md:mb-10;
+  }
+
+  .hiw-title {
+    @apply text-4xl md:text-7xl md:font-semibold font-medium text-center;
+  }
+
+  .hiw-subtitle {
+    @apply text-gray font-semibold text-xl md:text-2xl py-10 text-center;
+  }
+
+  .hiw-video {
+    @apply absolute w-[95%] h-[90%] md:rounded-[56px] overflow-hidden;
+  }
+
+  .hiw-text-container {
+    @apply flex md:flex-row flex-col justify-around items-start md:gap-24 gap-4 max-md:max-w-[280px] m-auto;
+  }
+
+  .hiw-text {
+    @apply text-gray text-xl font-normal md:font-semibold;
+  }
+
+  .hiw-bigtext {
+    @apply text-white text-4xl md:text-5xl font-medium md:font-semibold my-2;
+  }
+
+  .video-carousel_container {
+    @apply relative sm:w-[90vw] w-[90vw] md:h-[70vh] sm:h-[50vh] h-[560px];
+  }
+
+  .g_fadeIn {
+    @apply opacity-0 translate-y-[100px];
+  }
+
+  .g_ctext {
+    @apply opacity-0 translate-y-[100px];
+  }
+
+  .g_img {
+    @apply opacity-0 translate-y-[100px];
+  }
+}

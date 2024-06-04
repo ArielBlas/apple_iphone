@@ -26,8 +26,6 @@ const ShopCarousel = () => {
     const slider = document.getElementById("slider-shop");
     const slwidth = slider.clientWidth;
 
-    console.log("shopId", (slwidth + 26) * (shopId - 1));
-
     let calc = (slwidth + 26) * (shopId - 1);
     let valid = false;
 
@@ -36,10 +34,6 @@ const ShopCarousel = () => {
       calc = slwidth - middle + 26 * shopId;
       valid = true;
     }
-
-    console.log("calc 2", calc);
-
-    console.log(slwidth, width);
 
     gsap.to("#slider-shop", {
       x: -calc,
